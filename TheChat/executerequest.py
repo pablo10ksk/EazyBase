@@ -56,8 +56,9 @@ class eazybase:
     def _submit_request(self, json_, url: str, return_str: str) -> dict:
         req = requests.post(url, data=json.dumps(json_))
         chat_return = req.json()
-        print(chat_return)
-        return json.loads(chat_return[return_str])
+        if isinstance(chat_return[return_str], str):
+            return json.loads(chat_return[return_str])
+        return chat_return[return_str]
 
     def GetResponse(self, prompt: str) -> str:
         json_ = {
