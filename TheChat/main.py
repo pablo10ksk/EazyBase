@@ -38,7 +38,6 @@ else:
     with st.sidebar:
         code_auth = ""
         phone_num = st.text_input("Phone number")
-        print(phone_num)
 
         if st.session_state["eazybase"].isrequested():
             code_auth = st.text_input("Code")
@@ -50,7 +49,6 @@ else:
                 code_auth,
             ),
         )
-        print(submitted1)
 
 
 for message in st.session_state.messages:

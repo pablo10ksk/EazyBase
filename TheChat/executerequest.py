@@ -1,16 +1,16 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class eazybase:
     def __init__(self, phone: str, company_owner: str):
-        self.base_url = (
-            "https://pre.uground.com/eazybase_pre/apiRest/EAZYBASE/GetChatMessage"
-        )
-        self.gdata_url = "https://pre.uground.com/eazybase_pre/apiRest/EAZYBASE/RetrieveUsrProcessData"
-        self.login_url = (
-            "https://pre.uground.com/eazybase_pre/apiRest/EAZYBASE/requestUsrlink"
-        )
+        self.base_url = os.getenv("CHAT_URL")
+        self.gdata_url = os.getenv("GDATA_URL")
+        self.login_url = os.getenv("LOGIN_URL")
         self.phone = phone
         self.email = ""
         self.company_owner = company_owner
