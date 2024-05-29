@@ -3,9 +3,6 @@
 # from datetime import time
 
 import streamlit as st
-from elasticsearch import Elasticsearch
-import json
-import webbrowser
 from executerequest import eazybase
 import uuid
 
