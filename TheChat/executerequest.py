@@ -14,7 +14,7 @@ class eazybase:
         self.phone = phone
         self.email = ""
         self.company_owner = company_owner
-        self.profile_name = "Guest"
+        self.profile_name = f"Guest - {self.phone}"
         self.logindone = False
         self.requested = False
         self.current_gdata = []
