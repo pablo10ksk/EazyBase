@@ -11,6 +11,7 @@ class eazybase:
         self.base_url = os.getenv("CHAT_URL")
         self.gdata_url = os.getenv("GDATA_URL")
         self.login_url = os.getenv("LOGIN_URL")
+        self.getsources = os.getenv("SHOW_SOURCES")
         self.phone = phone
         self.email = ""
         self.company_owner = company_owner
@@ -67,6 +68,7 @@ class eazybase:
                 "phone": self.phone,
                 "body": prompt,
                 "profile_name": self.profile_name,
+                "fetch_sources": self.getsources,
             }
         }
 
