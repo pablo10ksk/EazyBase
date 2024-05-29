@@ -5,12 +5,17 @@
 import streamlit as st
 from executerequest import eazybase
 import uuid
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def repr_agg_data(array_data: dict) -> None:
-    for agg_data in array_data:
-        with st.expander(agg_data["kbase"], expanded=False):
-            st.markdown(agg_data["description"])
+    if os.getenv("SHOW_SOURCES") == 1:
+        for agg_data in array_data:
+            with st.expander(agg_data["kbase"], expanded=False):
+                st.markdown(agg_data["description"])
 
 
 def submit_auth(phone_num: str, code: str) -> bool:
@@ -55,7 +60,7 @@ for message in st.session_state.messages:
             repr_agg_data(message["extra_data"])
 
 
-if prompt := st.chat_input("............TheChat..........just ASK..........."):
+if prompt := st.chat_input("............TheChat.........."):
     st.session_state.messages.append({"name": "user", "text": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
